@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset = "utf-8"><!--nedan bestäms iconen och flik namne samnt css och mqtt länk -->
+        <title>broom</title>
+        <link rel="icon" type= "image/jpg"href='pepe.jpg'><!--sätter en fin bild och namn på sidans flik -->
+        <link rel="stylesheet" href="Style.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js" type="text/javascript"></script><!-- Förklarar vilka biblotek som behövs -->
+        <style>
+            body {
+                margin: 0;
+                overflow:hidden;
+            } 
+        </style>
+    </head>
+    <body><!-- bodyn inehåller alla element-->
+        <!-- <button class="collapsible">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </button>
+        <div class="content">
+            <button id = "conect"></button>
+        </div>  -->
+        <button id = hej style="z-index: 3; position: relative;">press</button>
+        <div>
+        <div id="array" class="ArrayMap">
+            <!-- <div style="height: 100px;background-color: aqua;"></div> -->
+        </div>
+        <div id = "Map" class="VisibleMap"></div>
+        </div> 
+        <script src = ./input.js></script>
+        <script src = ./index.js></script>
+    </body>
+</html>

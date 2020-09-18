@@ -1,0 +1,130 @@
+@charset "uft-8";
+
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {/*bestämmer font bakgrund och att man ska kunna scrolla om man har för många element*/
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 100%;
+    background: #333;
+    overflow: hidden;
+  }
+  body{
+    zoom:1;
+    height: 100%;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 4px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #262626; 
+    border-radius: 4px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #606060; 
+  }
+  .ArrayMap{
+    top: 0;
+    position: fixed;
+    z-index: 0;
+    overflow-x: scroll;
+    overflow-y: scroll;
+    height:100%;
+    width: 100%;
+    user-select: none;
+    cursor: pointer;
+  }
+  .arraybox{
+    background-color: #000;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #555
+  }.arraybox.on{
+    background-color: #FFF;
+  }
+  .collapsible {
+    z-index: 1;
+    background-color: #777;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+  }
+  
+  .active, .collapsible:hover {
+    background-color: #555;
+  }
+  
+  .collapsible:after {
+    content: '\002B';
+    color: white;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+  }
+  
+  .active:after {
+    content: "\2212";
+  }
+  
+  .content {
+    z-index: 1;
+    padding: 0 18px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: #f1f1f1;
+  }
+  .bar{
+    width: 35px;
+    height: 5px;
+    background-color: #FFF;
+    margin: 6px 0;
+  }
+  .bar.active{
+    background-color: #333;
+  }
+  .container.active{
+    background-color: #FFF;
+  }
+  #Map{
+    top: 0;
+    position: fixed;
+    z-index: 1;
+    overflow-x: scroll;
+    overflow-y: scroll;
+    height:100%;
+    width: 100%;
+    user-select: none;
+    cursor: pointer;
+    opacity: 1;
+  }
+#Map.active{
+  cursor: grabbing;
+  cursor: -webkit-grabbing;
+}
+#Map.ree{
+  opacity: 0;
+}
