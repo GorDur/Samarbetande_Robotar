@@ -70,5 +70,36 @@ window.addEventListener('load', f => {
 
     var body = document.getElementById('Map');
     body.addEventListener('mousewheel',eventHandler,false);
+    document.getElementById("view").addEventListener('click', function(){
+        document.getElementById('Map').classList.toggle('ree')
+    })
+    document.getElementById("connect").addEventListener('click',function(e){
+        e.preventDefault()
+        if(document.getElementById("connect").innerHTML == "Disconnect"){
+            startDisconnect()
+            document.getElementById("connect").innerHTML = "Connect"
+        }else{
+            document.getElementById("connect").innerHTML = "Disconnect"
+            startConnect()
+        }
+    })
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
 
+    for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        console.log(content)
+        if (content.style.display === "block") {
+        content.style.display = "none";
+        } else {
+        content.style.display = "block";
+        }
+    });
+    }
+
+    document.getElementById("Map").style.height= window.innerHeight+'px'
+    document.getElementById("array").style.height= window.innerHeight+'px'
+    
 },false);
