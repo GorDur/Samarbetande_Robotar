@@ -28,11 +28,41 @@
         </div>
         <div id = "Map" class="VisibleMap"></div>
         </div>
+        
         <div id="toolbar">
+        <div style="position: relative;top: 0">
+                <button id="start">start</button>
+                <label for="inp" class="inp">
+                    <input type="number" id="i1" placeholder="&nbsp;">
+                    <span class="label">Startpos</span>
+                    <span class="border"></span>
+                </label>
+                <label for="inp" class="inp">
+                    <input type="number" id="i2" placeholder="&nbsp;">
+                    <span class="label">Startpos</span>
+                    <span class="border"></span>
+                </label>
+                <label for="inp" class="inp">
+                    <input type="number" id="i3" placeholder="&nbsp;">
+                    <span class="label">Matrix</span>
+                    <span class="border"></span>
+                </label>
+                <label for="inp" class="inp">
+                    <input type="number" id="i4" placeholder="&nbsp;">
+                    <span class="label">Matrix</span>
+                    <span class="border"></span>
+                </label>
+    
+            </div>
             <button id = view style="z-index: 3; position: relative;">View</button>
             <button id = connect style="z-index: 3; position: relative;">Connect</button>
-            <button class="collapsible">h</button>
-            <textarea id = "message" class="content"placeholder="Message Display" required></textarea>
+            <button id = sim >Simulation</button>
+            <button class="collapsible">mqtt</button>
+            <div class="content">
+                <textarea id="wallE" class = "message" placeholder="Robot-1" required></textarea>
+                <textarea id="EVE" class = "message" placeholder="Robot-2" required></textarea>
+            </div>
+            
         </div>
         <script src="./js/pathfinding-browser.js"></script>
         <script src = ./input.js></script>

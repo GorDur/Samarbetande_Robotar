@@ -70,9 +70,16 @@ window.addEventListener('load', f => {
 
     var body = document.getElementById('Map');
     body.addEventListener('mousewheel',eventHandler,false);
-    document.getElementById("view").addEventListener('click', function(){
+    document.getElementById("view").addEventListener('click', function(e){
+        e.preventDefault()
         document.getElementById('Map').classList.toggle('ree')
     })
+    document.getElementById("sim").addEventListener('click',function(e){
+        e.preventDefault()
+        start(document.getElementById("i1").value,document.getElementById("i2").value,document.getElementById("i3").value,document.getElementById("i4").value,true)
+        if(document.getElementById("start").innerHTML == "start"){
+            document.getElementById("start").innerHTML = "restart"}
+        })
     document.getElementById("connect").addEventListener('click',function(e){
         e.preventDefault()
         if(document.getElementById("connect").innerHTML == "Disconnect"){
@@ -83,6 +90,13 @@ window.addEventListener('load', f => {
             startConnect()
         }
     })
+    document.getElementById("start").addEventListener('click',function(e){
+        e.preventDefault()
+        start(document.getElementById("i1").value,document.getElementById("i2").value,document.getElementById("i3").value,document.getElementById("i4").value,false)
+        if(document.getElementById("start").innerHTML == "start"){
+            document.getElementById("start").innerHTML = "restart"}
+    })
+    document.getElementById("connect").click()
     var coll = document.getElementsByClassName("collapsible");
     var i;
 
@@ -98,6 +112,27 @@ window.addEventListener('load', f => {
         }
     });
     }
+
+    const BORDER_SIZE = 4;
+    const panel = document.getElementById("toolbar");
+
+    let m_pos;
+    function resize(e){
+    const dy = m_pos - e.y;
+    m_pos = e.y;
+    panel.style.height = (parseInt(getComputedStyle(panel, '').height) + dy) + "px";
+    }
+
+    panel.addEventListener("mousedown", function(e){
+    if (e.offsetY < BORDER_SIZE) {
+        m_pos = e.y;
+        document.addEventListener("mousemove", resize, false);
+    }
+    }, false);
+
+    document.addEventListener("mouseup", function(){
+        document.removeEventListener("mousemove", resize, false);
+    }, false);
 
     document.getElementById("Map").style.height= window.innerHeight+'px'
     document.getElementById("array").style.height= window.innerHeight+'px'
